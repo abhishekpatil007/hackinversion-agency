@@ -1,0 +1,88 @@
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=WDXL+Lubrifont+SC&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=general-sans@500,600,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 4%; /* #0A0A0A */
+    --foreground: 210 40% 98%;
+    --card: 0 0% 8%; /* #18181b */
+    --card-foreground: 210 40% 98%;
+    --primary: 242 83% 67%; /* #6366F1 */
+    --primary-foreground: 210 40% 98%;
+    --secondary: 265 83% 80%; /* #A78BFA */
+    --secondary-foreground: 210 40% 98%;
+    --muted: 220 14% 20%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --border: 220 14% 20%;
+    --input: 220 14% 20%;
+    --ring: 242 83% 67%;
+  }
+}
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: #0A0A0A;
+    color: #fff;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-[#0A0A0A] text-white font-sans antialiased;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary bg-gradient-to-r from-indigo-500 to-purple-500 text-white shadow-md hover:from-indigo-600 hover:to-purple-600;
+  }
+  .btn-outline {
+    @apply border border-gray-700 text-white bg-transparent hover:bg-gray-900;
+  }
+  .badge {
+    @apply inline-block px-3 py-1 rounded-full text-xs font-semibold bg-indigo-600/10 text-indigo-400;
+  }
+  .card {
+    @apply bg-[#18181b] rounded-2xl shadow-md p-8;
+  }
+  .nav-link {
+    @apply text-gray-200 hover:text-white transition-colors duration-200 px-4 py-2 rounded-md;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-800 rounded-full;
+}
+::-webkit-scrollbar-track {
+  @apply bg-[#0A0A0A];
+}
+
+input:focus, textarea:focus {
+  @apply ring-2 ring-primary/30;
+}
+
+@layer utilities {
+  .font-inter {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  .font-general-sans {
+    font-family: 'General Sans', system-ui, sans-serif;
+  }
+  .font-wdxl {
+    font-family: 'WDXL Lubrifont SC', serif;
+  }
+  .font-inter-tight {
+    font-family: 'Inter Tight', sans-serif;
+  }
+  .font-oswald {
+    font-family: 'Oswald', sans-serif;
+  }
+}
