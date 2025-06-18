@@ -3,138 +3,18 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
   ArrowRightIcon,
-  CodeBracketIcon,
-  DevicePhoneMobileIcon,
-  ComputerDesktopIcon,
-  CpuChipIcon,
   ShieldCheckIcon,
-  BriefcaseIcon,
-  ArrowTopRightOnSquareIcon,
-  CheckCircleIcon,
-  RocketLaunchIcon,
-  StarIcon,
-  ChartBarIcon,
-  ClockIcon,
-  TrophyIcon,
   LockClosedIcon
 } from '@heroicons/react/24/outline';
 import AnimatedBackground from '../components/layout/AnimatedBackground';
 
-// Stats data
-const stats = [
-  {
-    icon: <RocketLaunchIcon className="w-6 h-6 sm:w-8 sm:h-8" />,
-    value: '50+',
-    label: 'Projects Delivered'
-  },
-  {
-    icon: <StarIcon className="w-6 h-6 sm:w-8 sm:h-8" />,
-    value: '4.9',
-    label: 'Client Rating'
-  },
-  {
-    icon: <ClockIcon className="w-6 h-6 sm:w-8 sm:h-8" />,
-    value: '30',
-    label: 'Days Average'
-  },
-  {
-    icon: <TrophyIcon className="w-6 h-6 sm:w-8 sm:h-8" />,
-    value: '95%',
-    label: 'Success Rate'
-  }
-];
 
-// Case Studies data
-const caseStudies = [
-  {
-    title: 'HealthTech MVP',
-    category: 'Healthcare',
-    description: 'A telemedicine platform connecting patients with healthcare providers through video consultations and digital health records.',
-    icon: CodeBracketIcon,
-    metrics: [
-      { value: '10K+', label: 'Users' },
-      { value: '$500K', label: 'Funding' },
-      { value: '15%', label: 'User Growth' }
-    ],
-    tech: ['React', 'Node.js', 'WebRTC', 'MongoDB']
-  },
-  {
-    title: 'E-commerce Platform',
-    category: 'Retail',
-    description: 'A modern e-commerce solution with AI-powered recommendations and seamless checkout experience.',
-    icon: DevicePhoneMobileIcon,
-    metrics: [
-      { value: '5K+', label: 'Orders' },
-      { value: '250%', label: 'Revenue Growth' },
-      { value: '4.8', label: 'User Rating' }
-    ],
-    tech: ['Next.js', 'Stripe', 'PostgreSQL', 'Redis']
-  },
-  {
-    title: 'FinTech Dashboard',
-    category: 'Finance',
-    description: 'A comprehensive financial dashboard for tracking investments, analytics, and portfolio management.',
-    icon: ChartBarIcon,
-    metrics: [
-      { value: '$2M+', label: 'Assets Tracked' },
-      { value: '1K+', label: 'Active Users' },
-      { value: '99.9%', label: 'Uptime' }
-    ],
-    tech: ['React', 'TypeScript', 'Firebase', 'Chart.js']
-  }
-];
 
-// Tech Categories data
-const techCategories = [
-  {
-    title: 'Frontend',
-    icon: ComputerDesktopIcon,
-    gradient: 'from-blue-500 to-cyan-500',
-    technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind']
-  },
-  {
-    title: 'Backend',
-    icon: CpuChipIcon,
-    gradient: 'from-green-500 to-emerald-500',
-    technologies: ['Node.js', 'Python', 'PostgreSQL', 'MongoDB']
-  },
-  {
-    title: 'Mobile',
-    icon: DevicePhoneMobileIcon,
-    gradient: 'from-purple-500 to-violet-500',
-    technologies: ['React Native', 'Expo', 'iOS', 'Android']
-  },
-  {
-    title: 'Cloud',
-    icon: ShieldCheckIcon,
-    gradient: 'from-orange-500 to-red-500',
-    technologies: ['AWS', 'Vercel', 'Docker', 'CI/CD']
-  }
-];
 
-// Process Steps data
-const processSteps = [
-  {
-    title: 'Discovery',
-    description: 'Understanding your vision, requirements, and target market.',
-    duration: 'Week 1'
-  },
-  {
-    title: 'Design',
-    description: 'Creating wireframes, UI/UX design, and technical architecture.',
-    duration: 'Week 2'
-  },
-  {
-    title: 'Development',
-    description: 'Building your MVP with agile development and weekly updates.',
-    duration: 'Week 3-4'
-  },
-  {
-    title: 'Launch',
-    description: 'Testing, deployment, and post-launch support.',
-    duration: 'Week 4+'
-  }
-];
+
+
+
+
 
 // Browser mockup component
 function BrowserMockup({ children, index }: {
@@ -547,7 +427,7 @@ function MedConnectLanding() {
 function DarkPortfolioUI() {
   const [currentProject, setCurrentProject] = React.useState(0);
   const [mousePos, setMousePos] = React.useState({ x: 50, y: 50 });
-  const [isHovered, setIsHovered] = React.useState(false);
+
 
   const projects = [
     { 
@@ -664,7 +544,7 @@ function DarkPortfolioUI() {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="flex gap-12 text-sm text-neutral-500"
           >
-            {['WORK', 'STUDIO', 'CONTACT'].map((item, i) => (
+            {['WORK', 'STUDIO', 'CONTACT'].map((item) => (
               <motion.a
                 key={item}
                 href="#"
@@ -747,8 +627,7 @@ function DarkPortfolioUI() {
                   }}
                   whileTap={{ scale: 0.95 }}
                   className="group relative overflow-hidden border border-white/30 text-white px-10 py-4 text-sm tracking-wide transition-all duration-300"
-                  onHoverStart={() => setIsHovered(true)}
-                  onHoverEnd={() => setIsHovered(false)}
+
                 >
                   <motion.div
                     className="absolute inset-0 bg-white"
@@ -952,7 +831,7 @@ function DarkPortfolioUI() {
               { name: 'INSTAGRAM', handle: '@alexchen.design' },
               { name: 'DRIBBBLE', handle: 'alexchen' },
               { name: 'BEHANCE', handle: 'alexchenstudio' }
-            ].map((social, i) => (
+            ].map((social) => (
               <motion.a
                 key={social.name}
                 href="#"
@@ -974,7 +853,7 @@ function DarkPortfolioUI() {
 function MinimalStudioLanding() {
   const [currentWord, setCurrentWord] = React.useState(0);
   const [mousePos, setMousePos] = React.useState({ x: 50, y: 50 });
-  const [isVisible, setIsVisible] = React.useState({});
+
 
   const words = ["Beautiful", "Minimal", "Thoughtful", "Timeless"];
   const services = [
@@ -1070,7 +949,7 @@ function MinimalStudioLanding() {
             className="flex items-center gap-12"
           >
             <div className="hidden md:flex gap-12 text-sm text-black/60">
-              {['Work', 'About', 'Contact'].map((item, i) => (
+              {['Work', 'About', 'Contact'].map((item) => (
                 <motion.a
                   key={item}
                   href="#"
@@ -1294,7 +1173,7 @@ function MinimalStudioLanding() {
           </div>
           
           <div className="flex gap-8">
-            {['Instagram', 'Behance', 'LinkedIn'].map((social, i) => (
+            {['Instagram', 'Behance', 'LinkedIn'].map((social) => (
               <motion.a
                 key={social}
                 href="#"

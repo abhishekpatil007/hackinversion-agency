@@ -208,7 +208,7 @@ function SuccessMetricsSection() {
           variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
           className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8"
         >
-          {successMetrics.map((metric, index) => (
+          {successMetrics.map((metric) => (
             <motion.div
               key={metric.label}
               variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}

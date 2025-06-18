@@ -9,17 +9,14 @@ import {
   StarIcon,
   ShieldCheckIcon,
   BoltIcon,
-  HeartIcon,
-  CpuChipIcon,
-  PaintBrushIcon,
-  CodeBracketIcon,
-  DevicePhoneMobileIcon,
   GlobeAltIcon,
   ChartBarIcon,
   UserGroupIcon,
   ArrowRightIcon,
   FireIcon,
-  TrophyIcon
+  TrophyIcon,
+  PaintBrushIcon,
+  CpuChipIcon
 } from '@heroicons/react/24/solid';
 import AnimatedBackground from '../components/layout/AnimatedBackground';
 
@@ -242,7 +239,7 @@ function SuccessMetrics() {
           variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
           className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8"
         >
-          {metrics.map((metric, index) => (
+          {metrics.map((metric) => (
             <motion.div
               key={metric.label}
               variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}

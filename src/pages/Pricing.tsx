@@ -1,7 +1,7 @@
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import { ChevronDownIcon, SparklesIcon, RocketLaunchIcon, BoltIcon } from '@heroicons/react/24/solid';
+import { SparklesIcon, RocketLaunchIcon, BoltIcon } from '@heroicons/react/24/solid';
 import AnimatedBackground from '../components/layout/AnimatedBackground';
 
 // --- Hero Section ---
@@ -273,7 +273,7 @@ function PricingTable() {
 
                 {/* Right Column - Features */}
                 <div className="space-y-10">
-                  {activePlanData?.whatsIncluded.map((section, index) => (
+                  {activePlanData?.whatsIncluded.map((section) => (
                     <div key={section.title} className="space-y-4">
                       <h4 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-indigo-400 border-b border-violet-500/30 pb-3">
                         {section.title}

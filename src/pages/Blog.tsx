@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import AnimatedBackground from '../components/layout/AnimatedBackground';
 
 const featuredPost = {

@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { 
@@ -243,7 +242,7 @@ function ResponseTimeSection() {
           variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
           className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8"
         >
-          {responseStats.map((stat, index) => (
+          {responseStats.map((stat) => (
             <motion.div
               key={stat.label}
               variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}
