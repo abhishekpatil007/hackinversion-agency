@@ -7,7 +7,8 @@ const navigation = [
   { name: "Why Us", to: "/WhyUs" },
   { name: "Who We Help", to: "/who-we-help" },
   { name: "Our Work", to: "/OurWork" },
-  { name: "Pricing", to: "/Pricing" },
+  { name: "Pricing", to: "/pricing" },
+  { name: "Enterprise", to: "/enterprise" },
   { name: "FAQ", to: "/FAQ" },
   { name: "Contact", to: "/Contact" },
 ];

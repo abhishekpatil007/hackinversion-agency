@@ -343,6 +343,12 @@ function ReadyToBuildSection() {
             Start Your Project <ArrowRightIcon className="w-4 h-4 sm:w-5 sm:h-5" />
           </Link>
           <Link
+            to="/enterprise"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-teal-500 to-cyan-500 text-black font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-xl hover:scale-105 transition-transform shadow-lg shadow-teal-500/25 text-base sm:text-lg"
+          >
+            Enterprise Solutions
+          </Link>
+          <Link
             to="/our-work"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/5 text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-xl hover:bg-white/10 transition-all border border-white/10 text-base sm:text-lg"
           >
@@ -389,7 +395,7 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
         >
-          ✨ Slot's Available for June
+          ✨ Slot's Available for July 
         </motion.span>
         <motion.h1
           className="text-4xl sm:text-6xl lg:text-8xl xl:text-9xl mb-4 sm:mb-6 leading-tight z-10 max-w-5xl"
