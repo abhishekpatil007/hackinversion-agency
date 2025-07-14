@@ -22,7 +22,7 @@ const faqCategories = [
         question: "What services do you offer?",
         answer: "We specialize in React development, web applications, mobile apps, and digital transformation. From MVP development to enterprise solutions, we help businesses build scalable, modern web applications."
       },
-      {
+    {
         question: "How fast will I receive my project?",
         answer: "Most MVPs are delivered in 2-6 weeks, while larger applications take 2-4 months. We provide detailed timelines during consultation and keep you updated with weekly progress reports."
       },
@@ -41,11 +41,11 @@ const faqCategories = [
     title: 'Process & Team',
     icon: <UserGroupIcon className="w-5 h-5" />,
     faqs: [
-      {
+    {
         question: "How does the onboarding process work?",
         answer: "We start with a discovery call to understand your needs, create detailed project scoping, set up contracts, assign your dedicated team, and begin with regular sprint planning and updates."
-      },
-      {
+    },
+    {
         question: "Who will work on my project?",
         answer: "You get a dedicated team: senior React developers (5+ years experience), UI/UX designers, a project manager, and DevOps support. All team members have shipped products used by millions."
       },
@@ -75,8 +75,8 @@ const faqCategories = [
       {
         question: "Do you provide ongoing support?",
         answer: "Yes! We offer comprehensive post-launch support including bug fixes, security updates, performance monitoring, and optional retainer packages for ongoing development."
-      },
-      {
+    },
+    {
         question: "What if I'm not satisfied with the work?",
         answer: "Your satisfaction is guaranteed. We offer unlimited revisions during development, 30-day warranty post-launch, and will work with you until you're completely happy with the result."
       }
@@ -94,8 +94,8 @@ const faqCategories = [
       {
         question: "How do you ensure code quality?",
         answer: "We follow enterprise-grade practices: code reviews, automated testing, security audits, OWASP compliance, and React/JavaScript best practices. All code comes with documentation."
-      },
-      {
+    },
+    {
         question: "Can you integrate with existing systems?",
         answer: "Absolutely! We're experts at integrations including CRMs, payment systems, authentication providers, databases, and custom APIs to ensure seamless data flow."
       },

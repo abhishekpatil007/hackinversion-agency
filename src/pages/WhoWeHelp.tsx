@@ -39,8 +39,8 @@ function HeroSection() {
           </div>
         </motion.div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 40 }}
+      <motion.h1
+        initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-5xl md:text-7xl font-bold tracking-tight mb-8 text-white leading-tight"
@@ -49,16 +49,16 @@ function HeroSection() {
           <span className="block text-4xl md:text-5xl bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent mt-2">
             Ship Faster
           </span>
-        </motion.h1>
+      </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-xl md:text-2xl text-neutral-300 max-w-4xl mx-auto mb-12 leading-relaxed"
-        >
+      >
           Whether you're a solo founder with big dreams, a funded startup scaling fast, or an agency delivering premium work — we're your technical execution partner.
-        </motion.p>
+      </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -185,7 +185,7 @@ function WhoWeHelpCards() {
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Your Success, Our Mission
-          </h2>
+            </h2>
           <p className="text-xl text-neutral-400 max-w-3xl mx-auto">
             No matter where you are in your journey, we have the right approach to help you ship faster and grow bigger.
           </p>
@@ -232,7 +232,7 @@ function WhoWeHelpCards() {
                       </div>
                     ))}
                   </div>
-                </div>
+            </div>
 
                 {/* Perfect For */}
                 <div className="mb-8">
@@ -246,23 +246,23 @@ function WhoWeHelpCards() {
                         key={i}
                         className="text-xs px-3 py-1 rounded-full bg-white/10 text-neutral-300 border border-white/10"
                       >
-                        {item}
+                    {item}
                       </span>
-                    ))}
+                ))}
                   </div>
-                </div>
+            </div>
 
                 {/* CTA */}
                 <div className="space-y-4">
-                  <Link
-                    to="/contact"
+            <Link
+              to="/contact"
                     className={`w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r ${category.gradient} text-white font-semibold px-6 py-4 rounded-xl hover:shadow-lg transition-all group-hover:shadow-xl`}
-                  >
+            >
                     {category.cta} <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </div>
+            </Link>
+          </div>
               </div>
-            </motion.div>
+          </motion.div>
           ))}
         </div>
       </div>
@@ -331,12 +331,12 @@ function IndustriesSection() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {industries.map((industry, index) => (
-            <motion.div
+          <motion.div
               key={industry.title}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
-              viewport={{ once: true }}
+            viewport={{ once: true }}
               whileHover={{ scale: 1.05, y: -5 }}
               className="group relative"
             >
@@ -350,10 +350,10 @@ function IndustriesSection() {
                 <h3 className="text-xl font-bold text-white mb-3">{industry.title}</h3>
                 <p className="text-neutral-300 leading-relaxed">{industry.description}</p>
               </div>
-            </motion.div>
+          </motion.div>
           ))}
-        </div>
-      </div>
+            </div>
+            </div>
     </section>
   );
 }
@@ -455,8 +455,8 @@ function TechnologiesSection() {
                     </div>
                   ))}
                 </div>
-              </div>
-            </motion.div>
+          </div>
+        </motion.div>
           ))}
         </div>
       </div>
@@ -485,7 +485,7 @@ function SuccessMetricsSection() {
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Proven Track Record
-          </h2>
+            </h2>
           <p className="text-xl text-neutral-400 max-w-3xl mx-auto">
             Numbers that speak for themselves. We deliver results that matter.
           </p>
@@ -508,10 +508,10 @@ function SuccessMetricsSection() {
                 <div className="text-white">
                   {metric.icon}
                 </div>
-              </div>
+          </div>
               <div className="text-3xl font-bold text-white mb-2">{metric.value}</div>
               <div className="text-neutral-400">{metric.label}</div>
-            </motion.div>
+          </motion.div>
           ))}
         </motion.div>
       </div>
@@ -656,10 +656,10 @@ function FinalCTASection() {
           viewport={{ once: true }}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
-          <Link
-            to="/contact"
+            <Link
+              to="/contact"
             className="inline-flex items-center gap-2 bg-gradient-to-r from-violet-500 to-purple-500 text-white font-semibold px-8 py-4 rounded-xl hover:scale-105 transition-transform shadow-lg shadow-violet-500/25 text-lg"
-          >
+            >
             Book Strategy Call <ArrowRightIcon className="w-5 h-5" />
           </Link>
           <Link
@@ -667,7 +667,7 @@ function FinalCTASection() {
             className="inline-flex items-center gap-2 bg-white/5 text-white font-semibold px-8 py-4 rounded-xl hover:bg-white/10 transition-all border border-white/10 text-lg"
           >
             View Our Work
-          </Link>
+            </Link>
         </motion.div>
 
         <motion.div

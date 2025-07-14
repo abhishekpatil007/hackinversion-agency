@@ -37,8 +37,8 @@ function HeroSection() {
           </div>
         </motion.div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 40 }}
+      <motion.h1
+        initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight mb-6 sm:mb-8 text-white leading-tight"
@@ -47,10 +47,10 @@ function HeroSection() {
           <span className="block text-3xl sm:text-4xl lg:text-5xl xl:text-6xl bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent mt-2">
             Technical Co-Founder
           </span>
-        </motion.h1>
+      </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-lg sm:text-xl lg:text-2xl text-neutral-300 max-w-4xl mx-auto mb-8 sm:mb-12 leading-relaxed"
@@ -138,9 +138,9 @@ function WhatMakesUsDifferent() {
             <motion.div
               key={item.title}
               initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
-              viewport={{ once: true }}
+        viewport={{ once: true }}
               whileHover={{ scale: 1.02, y: -5 }}
               className="group relative"
             >
@@ -232,15 +232,15 @@ function SuccessMetrics() {
           </p>
         </motion.div>
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
           variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
           className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8"
-        >
+      >
           {metrics.map((metric) => (
-            <motion.div
+          <motion.div
               key={metric.label}
               variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}
               whileHover={{ scale: 1.05, y: -5 }}
@@ -256,9 +256,9 @@ function SuccessMetrics() {
                 <div className="text-sm sm:text-lg font-semibold text-violet-300 mb-1">{metric.label}</div>
                 <div className="text-xs sm:text-sm text-neutral-400">{metric.description}</div>
               </div>
-            </motion.div>
-          ))}
-        </motion.div>
+          </motion.div>
+        ))}
+      </motion.div>
       </div>
     </section>
   );
@@ -293,11 +293,11 @@ function WhoWeHelp() {
   return (
     <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-neutral-950/50">
       <div className="max-w-7xl mx-auto">
-        <motion.div
+      <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+        viewport={{ once: true }}
           className="text-center mb-12 sm:mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight">
@@ -310,7 +310,7 @@ function WhoWeHelp() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
           {clientTypes.map((client, index) => (
-            <motion.div
+          <motion.div
               key={client.title}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -340,8 +340,8 @@ function WhoWeHelp() {
                   ))}
                 </ul>
               </div>
-            </motion.div>
-          ))}
+          </motion.div>
+        ))}
         </div>
       </div>
     </section>
@@ -400,24 +400,24 @@ function WhatYouGet() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
           {deliverables.map((section, index) => (
-            <motion.div
+      <motion.div
               key={section.category}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
-              viewport={{ once: true }}
+        viewport={{ once: true }}
               className="bg-neutral-900/80 backdrop-blur-xl border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8"
-            >
+      >
               <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6 text-center">{section.category}</h3>
               <ul className="space-y-3 sm:space-y-4">
                 {section.items.map((item, idx) => (
                   <li key={idx} className="flex items-start gap-3 text-sm sm:text-base text-neutral-300">
                     <CheckCircleIcon className="w-5 h-5 sm:w-6 sm:h-6 text-violet-400 mt-0.5 flex-shrink-0" />
                     <span className="leading-relaxed">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
+            </li>
+          ))}
+        </ul>
+      </motion.div>
           ))}
         </div>
       </div>
@@ -451,11 +451,11 @@ function WhyFoundersLoveUs() {
   return (
     <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-neutral-950/50">
       <div className="max-w-7xl mx-auto">
-        <motion.div
+      <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+        viewport={{ once: true }}
           className="text-center mb-12 sm:mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight">
@@ -468,7 +468,7 @@ function WhyFoundersLoveUs() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
           {testimonials.map((testimonial, index) => (
-            <motion.div
+          <motion.div
               key={testimonial.author}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -476,7 +476,7 @@ function WhyFoundersLoveUs() {
               viewport={{ once: true }}
               whileHover={{ scale: 1.02, y: -5 }}
               className="bg-neutral-900/80 backdrop-blur-xl border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-center hover:border-white/20 transition-all duration-500"
-            >
+          >
               <div className="mb-4 sm:mb-6">
                 <StarIcon className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-400 mx-auto mb-3 sm:mb-4" />
                 <blockquote className="text-lg sm:text-xl text-white font-medium leading-relaxed mb-4 sm:mb-6">
@@ -492,8 +492,8 @@ function WhyFoundersLoveUs() {
                   {testimonial.metric}
                 </div>
               </div>
-            </motion.div>
-          ))}
+          </motion.div>
+        ))}
         </div>
       </div>
     </section>
@@ -505,11 +505,11 @@ function FinalCTA() {
   return (
     <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-black">
       <div className="max-w-4xl mx-auto text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+        viewport={{ once: true }}
           className="bg-gradient-to-br from-violet-500/10 to-purple-500/10 backdrop-blur-xl border border-white/10 rounded-2xl sm:rounded-3xl p-8 sm:p-12"
         >
           <div className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-4 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm text-violet-300 mb-6 sm:mb-8">
@@ -537,7 +537,7 @@ function FinalCTA() {
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/5 text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-xl hover:bg-white/10 transition-all border border-white/10 text-base sm:text-lg"
             >
               View Success Stories
-            </Link>
+        </Link>
           </div>
 
           <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs sm:text-sm text-neutral-400">
@@ -558,7 +558,7 @@ function FinalCTA() {
               <span>Post-launch support</span>
             </div>
           </div>
-        </motion.div>
+      </motion.div>
       </div>
     </section>
   );

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
-  ArrowRightIcon,
+  ArrowRightIcon, 
   ShieldCheckIcon,
   LockClosedIcon
 } from '@heroicons/react/24/outline';
@@ -50,11 +50,11 @@ function BrowserMockup({ children, index }: {
             <div className="w-6 h-6 bg-neutral-700 rounded"></div>
           </div>
         </div>
-        
+
         {/* Website Content */}
         <div className="h-[calc(100%-40px)] relative overflow-hidden">
           {children}
-        </div>
+      </div>
       </motion.div>
     </motion.div>
   );
@@ -86,7 +86,7 @@ function BrandAILanding() {
       {/* Floating AI Icons */}
       <div className="absolute inset-0">
         {['🤖', '✨', '🎨', '💡', '🚀'].map((icon, i) => (
-          <motion.div
+                <motion.div
             key={i}
             className="absolute text-2xl opacity-20"
             initial={{ 
@@ -106,14 +106,14 @@ function BrandAILanding() {
             }}
           >
             {icon}
-          </motion.div>
-        ))}
-      </div>
-
+                </motion.div>
+              ))}
+        </div>
+        
       {/* Main Landing Content */}
       <div className="relative h-full flex flex-col justify-center items-center text-center p-4">
         {/* Logo Animation */}
-        <motion.div
+              <motion.div 
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.8, type: "spring", bounce: 0.3 }}
@@ -128,7 +128,7 @@ function BrandAILanding() {
             className="w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center text-2xl mb-2 mx-auto"
           >
             🤖
-          </motion.div>
+              </motion.div>
         </motion.div>
 
         {/* Hero Text */}
@@ -166,7 +166,7 @@ function BrandAILanding() {
         </motion.button>
 
         {/* Feature Pills */}
-        <motion.div
+              <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8, duration: 0.8 }}
@@ -183,12 +183,12 @@ function BrandAILanding() {
               {feature}
             </motion.span>
           ))}
-        </motion.div>
+              </motion.div>
 
         {/* Animated Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 0.8 }}
           className="absolute bottom-4 left-4 right-4 flex justify-between text-xs text-purple-300"
         >
@@ -201,9 +201,9 @@ function BrandAILanding() {
               50K+
             </motion.div>
             <div>Posts Generated</div>
-          </div>
+                </div>
           <div className="text-center">
-            <motion.div
+                    <motion.div
               animate={{ scale: [1, 1.1, 1] }}
               transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
               className="font-bold text-white"
@@ -211,7 +211,7 @@ function BrandAILanding() {
               98%
             </motion.div>
             <div>Accuracy</div>
-          </div>
+                      </div>
           <div className="text-center">
             <motion.div
               animate={{ scale: [1, 1.1, 1] }}
@@ -219,10 +219,10 @@ function BrandAILanding() {
               className="font-bold text-white"
             >
               2s
-            </motion.div>
+                    </motion.div>
             <div>Avg Time</div>
-          </div>
-        </motion.div>
+                </div>
+              </motion.div>
       </div>
     </div>
   );
@@ -271,7 +271,7 @@ function MedConnectLanding() {
             {element.icon}
           </motion.div>
         ))}
-      </div>
+            </div>
 
       {/* Heartbeat Line */}
       <div className="absolute top-1/3 left-0 right-0 h-px bg-emerald-400/30">
@@ -287,12 +287,12 @@ function MedConnectLanding() {
             ease: "easeInOut"
           }}
         />
-      </div>
+          </div>
 
       {/* Main Landing Content */}
       <div className="relative h-full flex flex-col justify-center items-center text-center p-4">
         {/* Medical Cross Logo */}
-        <motion.div
+            <motion.div 
           initial={{ scale: 0, rotate: -180 }}
           animate={{ scale: 1, rotate: 0 }}
           transition={{ duration: 1, type: "spring", bounce: 0.4 }}
@@ -308,7 +308,7 @@ function MedConnectLanding() {
             }}
             transition={{ duration: 2, repeat: Infinity }}
             className="w-16 h-16 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 flex items-center justify-center text-3xl mb-2 mx-auto relative"
-          >
+            >
             <motion.div
               animate={{ scale: [1, 1.1, 1] }}
               transition={{ duration: 1.5, repeat: Infinity }}
@@ -338,7 +338,7 @@ function MedConnectLanding() {
         </motion.p>
 
         {/* Action Buttons */}
-        <motion.div
+            <motion.div 
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.7, duration: 0.8 }}
@@ -355,14 +355,14 @@ function MedConnectLanding() {
             Find Doctor
           </motion.button>
           <motion.button
-            whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="bg-white/10 backdrop-blur-sm text-white px-5 py-2.5 rounded-full font-semibold text-sm border border-white/20"
-          >
+            >
             Emergency
           </motion.button>
-        </motion.div>
-
+            </motion.div>
+        
         {/* Stats */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -405,22 +405,22 @@ function MedConnectLanding() {
 
         {/* Trust Indicators */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.4, duration: 0.8 }}
           className="absolute bottom-4 left-4 right-4 flex justify-center gap-4 text-xs text-emerald-300"
-        >
+            >
           <div className="flex items-center gap-1">
             <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
             <span>HIPAA Compliant</span>
-          </div>
+              </div>
           <div className="flex items-center gap-1">
             <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
             <span>Verified Doctors</span>
-          </div>
-        </motion.div>
-      </div>
-    </div>
+              </div>
+            </motion.div>
+        </div>
+            </div>
   );
 }
 
@@ -499,8 +499,8 @@ function DarkPortfolioUI() {
 
         {/* Floating particles */}
         {Array.from({length: 20}).map((_, i) => (
-          <motion.div
-            key={i}
+              <motion.div
+                key={i}
             className="absolute w-1 h-1 bg-white/20 rounded-full"
             initial={{
               x: Math.random() * 100 + '%',
@@ -515,14 +515,14 @@ function DarkPortfolioUI() {
               repeat: Infinity,
               ease: "linear"
             }}
-          />
-        ))}
-      </div>
+              />
+            ))}
+        </div>
 
       {/* Navigation */}
       <nav className="absolute top-0 left-0 right-0 z-10 p-8">
         <div className="flex items-center justify-between">
-          <motion.div
+            <motion.div
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -536,7 +536,7 @@ function DarkPortfolioUI() {
               className="w-2 h-2 bg-white rounded-full"
             />
             <span className="text-white text-2xl font-extralight tracking-[0.3em] font-mono">ALEX CHEN</span>
-          </motion.div>
+            </motion.div>
           
           <motion.div
             initial={{ opacity: 0, y: -30 }}
@@ -563,7 +563,7 @@ function DarkPortfolioUI() {
                   transition={{ duration: 0.3 }}
                 />
               </motion.a>
-            ))}
+          ))}
           </motion.div>
         </div>
       </nav>
@@ -573,11 +573,11 @@ function DarkPortfolioUI() {
         <div className="max-w-7xl w-full grid grid-cols-12 gap-16 items-center">
           {/* Left Side - Text */}
           <div className="col-span-6">
-            <motion.div
+        <motion.div 
               initial={{ opacity: 0, y: 60 }}
-              animate={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 1 }}
-            >
+        >
               <div className="mb-8">
                 <motion.p 
                   className="text-neutral-400 text-xs mb-6 tracking-[0.2em] font-mono"
@@ -591,7 +591,7 @@ function DarkPortfolioUI() {
                 <motion.h1 
                   className="text-7xl font-extralight text-white mb-8 leading-[0.9]"
                   initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
+                animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1, duration: 0.8 }}
                 >
                   Crafting
@@ -604,7 +604,7 @@ function DarkPortfolioUI() {
                 </motion.h1>
               </div>
 
-              <motion.p
+              <motion.p 
                 className="text-neutral-300 text-lg leading-relaxed mb-12 max-w-lg"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -613,8 +613,8 @@ function DarkPortfolioUI() {
                 Where minimalism meets innovation. I create digital experiences that transcend 
                 the ordinary through purposeful design and meticulous attention to detail.
               </motion.p>
-
-              <motion.div
+        
+            <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.4, duration: 0.8 }}
@@ -686,7 +686,7 @@ function DarkPortfolioUI() {
                         <div>
                           <span className="text-base font-light">{project.title}</span>
                           <div className="text-xs text-neutral-500 mt-1">{project.category}</div>
-                        </div>
+              </div>
                       </div>
                       <span className="text-xs text-neutral-500 font-mono">{project.year}</span>
                     </div>
@@ -700,15 +700,15 @@ function DarkPortfolioUI() {
                         }}
                       />
                     )}
-                  </motion.div>
-                ))}
+            </motion.div>
+          ))}
               </div>
             </motion.div>
-          </div>
+        </div>
 
           {/* Right Side - Enhanced Visual */}
           <div className="col-span-6 relative">
-            <motion.div
+        <motion.div
               initial={{ opacity: 0, scale: 0.8, rotateY: 15 }}
               animate={{ opacity: 1, scale: 1, rotateY: 0 }}
               transition={{ delay: 0.8, duration: 1.2, ease: "easeOut" }}
@@ -733,7 +733,7 @@ function DarkPortfolioUI() {
                       initial={{ y: 20, opacity: 0 }}
                       animate={{ y: 0, opacity: 1 }}
                       transition={{ delay: 0.3, duration: 0.8 }}
-                    >
+        >
                       <motion.div
                         className="w-24 h-24 border border-white/20 rounded-full mb-8 mx-auto flex items-center justify-center relative"
                         animate={{ rotate: 360 }}
@@ -761,7 +761,7 @@ function DarkPortfolioUI() {
                       </motion.h4>
                       <p className="text-neutral-400 text-sm">{projects[currentProject].category}</p>
                     </motion.div>
-                  </div>
+            </div>
 
                   {/* Animated Grid Overlay */}
                   <div 
@@ -892,8 +892,8 @@ function MinimalStudioLanding() {
 
         {/* Minimal floating elements */}
         {Array.from({length: 8}).map((_, i) => (
-          <motion.div
-            key={i}
+              <motion.div
+                key={i}
             className="absolute w-1 h-1 bg-black/5 rounded-full"
             style={{
               left: `${20 + (i * 15)}%`,
@@ -909,8 +909,8 @@ function MinimalStudioLanding() {
               delay: i * 0.5,
               ease: "easeInOut"
             }}
-          />
-        ))}
+              />
+            ))}
 
         {/* Subtle grid */}
         <div 
@@ -920,18 +920,18 @@ function MinimalStudioLanding() {
             backgroundSize: '80px 80px'
           }}
         />
-      </div>
-
+        </div>
+        
       {/* Navigation */}
       <nav className="relative z-10 p-8">
         <div className="flex items-center justify-between max-w-6xl mx-auto">
-          <motion.div
+            <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="flex items-center gap-3"
           >
-            <motion.div
+                <motion.div
               className="w-2 h-2 bg-black rounded-full"
               animate={{ 
                 scale: [1, 1.5, 1],
@@ -960,13 +960,13 @@ function MinimalStudioLanding() {
                   <span className="group-hover:text-black transition-colors duration-300">{item}</span>
                   <motion.div
                     className="absolute -bottom-1 left-0 h-px bg-black"
-                    initial={{ width: 0 }}
+                  initial={{ width: 0 }}
                     whileHover={{ width: "100%" }}
                     transition={{ duration: 0.3 }}
-                  />
+                />
                 </motion.a>
               ))}
-            </div>
+              </div>
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
@@ -980,10 +980,10 @@ function MinimalStudioLanding() {
               />
               <span className="relative z-10">Start Project</span>
             </motion.button>
-          </motion.div>
+            </motion.div>
         </div>
       </nav>
-
+        
       {/* Main Content */}
       <div className="relative z-10 flex items-center justify-center px-8 h-[calc(100%-100px)]">
         <div className="max-w-6xl w-full">
@@ -1021,7 +1021,7 @@ function MinimalStudioLanding() {
                     <br />
                     <span className="text-5xl text-black/60">Experiences</span>
                   </h1>
-                </div>
+            </div>
 
                 <motion.p
                   className="text-black/60 text-lg leading-relaxed max-w-lg font-light mb-12"
@@ -1033,7 +1033,7 @@ function MinimalStudioLanding() {
                   complex ideas into elegant, purposeful design solutions.
                 </motion.p>
 
-                <motion.div
+                  <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1, duration: 0.8 }}
@@ -1066,7 +1066,7 @@ function MinimalStudioLanding() {
             <div className="col-span-5 relative">
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
+                    animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.6, duration: 1 }}
                 className="relative"
               >
@@ -1150,11 +1150,11 @@ function MinimalStudioLanding() {
                     {service.desc}
                   </p>
                 </motion.div>
-              ))}
-            </div>
+                ))}
+              </div>
           </motion.div>
-        </div>
-      </div>
+            </div>
+          </div>
 
       {/* Footer */}
       <div className="absolute bottom-8 left-8 right-8">
@@ -1169,7 +1169,7 @@ function MinimalStudioLanding() {
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
               <span className="text-green-600">Available for new projects</span>
-            </div>
+        </div>
           </div>
           
           <div className="flex gap-8">
@@ -1264,7 +1264,7 @@ function CTASection() {
 
 // Main Page Component
 // Create a projects array for the mini mock websites
-const projects = [
+  const projects = [
   { ui: <BrandAILanding /> },
   { ui: <MedConnectLanding /> },
   { ui: <DarkPortfolioUI /> },
@@ -1320,26 +1320,26 @@ export default function OurWork() {
             </div>
             
             {/* Gradient overlays for desktop */}
-            <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-neutral-950 to-transparent pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-neutral-950 to-transparent pointer-events-none" />
-            
-            {/* Scroll Indicators */}
-            <div className="flex justify-center gap-2 mt-4">
-              {projects.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => {
-                    const container = document.querySelector('.scrollbar-hide');
-                    if (container) {
-                      container.scrollTo({
+          <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-neutral-950 to-transparent pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-neutral-950 to-transparent pointer-events-none" />
+          
+          {/* Scroll Indicators */}
+          <div className="flex justify-center gap-2 mt-4">
+            {projects.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => {
+                  const container = document.querySelector('.scrollbar-hide');
+                  if (container) {
+                    container.scrollTo({
                         left: index * (900 + 24), // card width + gap
-                        behavior: 'smooth'
-                      });
-                    }
-                  }}
-                  className="w-2 h-2 rounded-full bg-white/20 hover:bg-white/40 transition-colors duration-300"
-                />
-              ))}
+                      behavior: 'smooth'
+                    });
+                  }
+                }}
+                className="w-2 h-2 rounded-full bg-white/20 hover:bg-white/40 transition-colors duration-300"
+              />
+            ))}
             </div>
           </div>
         </div>
@@ -1349,4 +1349,4 @@ export default function OurWork() {
       </div>
     </div>
   );
-} 
+}

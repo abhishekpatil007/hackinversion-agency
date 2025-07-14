@@ -141,7 +141,7 @@ function ContactHeroSection() {
           </button>
         </motion.div>
       </div>
-    </section>
+      </section>
   );
 }
 
@@ -405,7 +405,7 @@ ${formData.message}
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-              <div>
+        <div>
                 <label className="block text-sm font-medium text-white mb-2" htmlFor="company">
                   Company Name
                 </label>
@@ -418,8 +418,8 @@ ${formData.message}
                   value={formData.company}
                   onChange={handleInputChange}
                 />
-              </div>
-              <div>
+        </div>
+        <div>
                 <label className="block text-sm font-medium text-white mb-2" htmlFor="budget">
                   Project Budget
                 </label>

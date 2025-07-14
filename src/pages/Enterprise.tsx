@@ -135,69 +135,7 @@ function HeroSection() {
           </a>
         </motion.div>
 
-        {/* Trust Indicators */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.9 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-8 mt-16 z-10"
-        >
-          <div className="flex items-center gap-2 text-sm text-slate-400">
-            <CheckCircleIcon className="w-4 h-4 text-green-400" />
-            <span>No upfront costs</span>
-          </div>
-          <div className="w-1 h-1 bg-slate-600 rounded-full hidden sm:block" />
-          <div className="flex items-center gap-2 text-sm text-slate-400">
-            <CheckCircleIcon className="w-4 h-4 text-green-400" />
-            <span>Free discovery session</span>
-          </div>
-          <div className="w-1 h-1 bg-slate-600 rounded-full hidden sm:block" />
-          <div className="flex items-center gap-2 text-sm text-slate-400">
-            <CheckCircleIcon className="w-4 h-4 text-green-400" />
-            <span>NDA protected</span>
-          </div>
-        </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.9, ease: "easeOut" }}
-          className="flex flex-col lg:flex-row gap-6 justify-center items-center mb-20"
-        >
-          <Link
-            to="/contact"
-            className="group relative overflow-hidden bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold px-12 py-6 rounded-2xl text-xl hover:shadow-2xl hover:shadow-blue-500/25 transition-all transform hover:scale-105 border border-blue-500/20"
-          >
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-blue-500"
-              initial={{ x: "-100%" }}
-              whileHover={{ x: "0%" }}
-              transition={{ duration: 0.4 }}
-            />
-            <span className="relative z-10 flex items-center gap-3">
-              <RocketLaunchIcon className="w-6 h-6" />
-              Book Discovery Call
-              <ArrowRightIcon className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
-            </span>
-          </Link>
-          
-          <div className="flex flex-wrap items-center justify-center gap-8 text-slate-400 text-sm">
-            <div className="flex items-center gap-2">
-              <LockClosedIcon className="w-4 h-4 text-blue-400" />
-              <span className="font-medium">NDA Protected</span>
-            </div>
-            <div className="w-1 h-1 bg-slate-600 rounded-full" />
-            <div className="flex items-center gap-2">
-              <ClockIcon className="w-4 h-4 text-blue-400" />
-              <span className="font-medium">30min Discovery</span>
-            </div>
-            <div className="w-1 h-1 bg-slate-600 rounded-full" />
-            <div className="flex items-center gap-2">
-              <UserGroupIcon className="w-4 h-4 text-blue-400" />
-              <span className="font-medium">Senior Engineers</span>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
