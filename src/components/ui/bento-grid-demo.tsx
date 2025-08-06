@@ -1,14 +1,5 @@
 import { cn } from "../../lib/utils";
-import React from "react";
 import { BentoGrid, BentoGridItem } from "./bento-grid";
-import {
-  IconBoxAlignRightFilled,
-  IconClipboardCopy,
-  IconFileBroken,
-  IconSignature,
-  IconTableColumn,
-} from "@tabler/icons-react";
-import { motion } from "framer-motion";
 
 export function BentoGridThirdDemo() {
   return (

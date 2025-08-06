@@ -9,17 +9,12 @@ import {
   BoltIcon, 
   CheckCircleIcon,
   CodeBracketIcon,
-  DevicePhoneMobileIcon,
-  CloudIcon,
-  ChartBarIcon,
-  CurrencyDollarIcon,
   TrophyIcon,
-  StarIcon,
-  UserGroupIcon
+  StarIcon
 } from '@heroicons/react/24/solid';
 
 import { HomeDisplayCards } from '../components/ui/home-display-cards';
-import { Sparkles } from '../components/ui/sparkles';
+// import { Sparkles } from '../components/ui/sparkles';
 
 // Updated services with modern approach
 const coreFeatures = [
@@ -49,6 +44,7 @@ const coreFeatures = [
   }
 ];
 
+/*
 const buildTypes = [
   {
     icon: <DevicePhoneMobileIcon className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />,
@@ -93,6 +89,7 @@ const buildTypes = [
     gradient: 'from-teal-500 to-blue-500'
   }
 ];
+*/
 
 const successMetrics = [
   { number: '50+', label: 'MVPs Launched', icon: <RocketLaunchIcon className="w-5 h-5 sm:w-6 sm:h-6" /> },

@@ -1,27 +1,15 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { MotionValue, motion, useScroll, useTransform } from "framer-motion";
 import { cn } from "../../lib/utils";
 import {
-  IconBrightnessDown,
-  IconBrightnessUp,
   IconCaretRightFilled,
   IconCaretUpFilled,
   IconChevronUp,
-  IconMicrophone,
-  IconMoon,
-  IconPlayerSkipForward,
-  IconPlayerTrackNext,
-  IconPlayerTrackPrev,
-  IconTable,
-  IconVolume,
-  IconVolume2,
-  IconVolume3,
+  IconWorld,
+  IconCommand,
+  IconCaretLeftFilled,
+  IconCaretDownFilled,
 } from "@tabler/icons-react";
-import { IconSearch } from "@tabler/icons-react";
-import { IconWorld } from "@tabler/icons-react";
-import { IconCommand } from "@tabler/icons-react";
-import { IconCaretLeftFilled } from "@tabler/icons-react";
-import { IconCaretDownFilled } from "@tabler/icons-react";
 
 export const MacbookScroll = ({
   src,
@@ -64,8 +52,8 @@ export const MacbookScroll = ({
   const textOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
   
   // Image opacity - starts visible, becomes more prominent after scroll
-  const imageOpacity = useTransform(scrollYProgress, [0, 0.3], [0.3, 1]);
-  const imageScale = useTransform(scrollYProgress, [0, 0.3], [0.9, 1]);
+  // const imageOpacity = useTransform(scrollYProgress, [0, 0.3], [0.3, 1]);
+  // const imageScale = useTransform(scrollYProgress, [0, 0.3], [0.9, 1]);
 
   return (
     <div
@@ -168,8 +156,8 @@ export const Lid = ({
               src={src}
               alt=""
               style={{
-                opacity: imageOpacity,
-                scale: imageScale,
+                opacity: 1,
+                scale: 1,
                 objectPosition: 'center center',
               }}
               className="h-full w-full rounded-lg object-cover"

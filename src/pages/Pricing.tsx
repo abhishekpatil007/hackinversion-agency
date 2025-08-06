@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 import { Sparkles } from '../components/ui/sparkles';
 import { TextGenerateEffect } from '../components/ui/text-generate-effect';
 import { BentoGridThirdDemo } from '../components/ui/bento-grid-demo';
