@@ -1,390 +1,459 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import { 
-  SparklesIcon, 
-  RocketLaunchIcon, 
-  BoltIcon,
-  CheckCircleIcon,
-  ArrowRightIcon,
-  ChartBarIcon
-} from '@heroicons/react/24/solid';
-import AnimatedBackground from '../components/layout/AnimatedBackground';
+import { useEffect, useState } from 'react';
+import { Sparkles } from '../components/ui/sparkles';
+import { TextGenerateEffect } from '../components/ui/text-generate-effect';
+import { BentoGridThirdDemo } from '../components/ui/bento-grid-demo';
 
-// --- Hero Section ---
-function Hero() {
-  return (
-    <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-b from-neutral-950 to-black" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.15),transparent_50%)]" />
-      
-      {/* Content */}
-      <div className="relative max-w-7xl mx-auto px-4 py-32 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-500/10 border border-violet-500/20 mb-6"
-        >
-          <SparklesIcon className="w-4 h-4 text-violet-400" />
-          <span className="text-sm font-medium text-violet-400">Custom Development Plans</span>
-        </motion.div>
-        
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-4xl md:text-6xl font-bold text-white mb-6"
-        >
-          Custom Websites.
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-indigo-400"> One Price Doesn't Fit All.</span>
-        </motion.h1>
-        
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-xl text-neutral-400 mb-8 max-w-2xl mx-auto"
-        >
-          Pick the right plan for your goals. Starting at ₹9,999 for quick launches to ₹89,999 for full-stack apps. Enterprise solutions available separately.
-        </motion.p>
-        
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
-        >
-          <Link 
-            to="#pricing" 
-            onClick={(e) => {
-              e.preventDefault();
-              const pricingSection = document.getElementById('pricing');
-              if (pricingSection) {
-                pricingSection.scrollIntoView({ behavior: 'smooth' });
-              }
-            }}
-            className="inline-flex items-center justify-center gap-2 py-3 px-8 rounded-xl bg-gradient-to-r from-violet-500 to-indigo-500 text-white font-semibold hover:shadow-lg hover:shadow-violet-500/25 transition-all"
-          >
-            View Plans
-          </Link>
-          <Link 
-            to="/contact" 
-            className="inline-flex items-center justify-center gap-2 py-3 px-8 rounded-xl bg-white/5 text-white font-semibold hover:bg-white/10 transition-all"
-          >
-            Book a Call
-          </Link>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
 
-// --- Pricing Plans ---
-const plans = [
+
+const timeline = [
   {
-    name: "Launch 9",
-    icon: <RocketLaunchIcon className="w-8 h-8 text-green-400" />,
-    price: "₹9,999",
-    subtitle: "Get online fast with a custom one-pager.",
-    description: "Perfect for small businesses and startups who need a professional presence quickly.",
-    features: [
-      "1-page fully custom-built site",
-      "Mobile-first, fast-loading",
-      "Contact form / CTA buttons",
-      "Hosting setup support",
-      "SEO-ready structure",
-      "Delivered in 7–10 days"
-    ],
-    cta: "Get Started",
-    highlight: false,
-    gradient: "from-green-500 to-emerald-500",
-    bgGradient: "from-green-500/10 to-emerald-500/10"
+    year: "2024",
+    title: "The Beginning",
+    description: "Started with a simple mission: build fast, build right, build for founders."
   },
   {
-    name: "Elevate",
-    icon: <ChartBarIcon className="w-8 h-8 text-violet-400" />,
-    price: "₹24,999–₹34,999",
-    subtitle: "Built to grow with your brand.",
-    description: "Ideal for growing businesses who need a comprehensive web presence with room to scale.",
-    features: [
-      "3–5 page custom site",
-      "Brand-aligned UI/UX",
-      "Lead capture forms, galleries, testimonials",
-      "Blog or CMS integration (Notion/Sanity)",
-      "Light animations, social embeds",
-      "Responsive, optimized"
-    ],
-    cta: "Choose Elevate",
-    highlight: true,
-    gradient: "from-violet-500 to-purple-500",
-    bgGradient: "from-violet-500/10 to-purple-500/10"
+    year: "2024",
+    title: "First 10 Clients",
+    description: "Proved that speed doesn't compromise quality. Every project a success story."
   },
   {
-    name: "Momentum",
-    icon: <BoltIcon className="w-8 h-8 text-orange-400" />,
-    price: "₹49,999–₹89,999",
-    subtitle: "More than a site — it's your digital product.",
-    description: "For ambitious businesses ready to build a full-scale digital product with backend systems.",
-    features: [
-      "All features from Elevate",
-      "Backend systems (DB, auth, APIs)",
-      "Admin panel or dashboards",
-      "SaaS-like flows (logins, logic, dashboards)",
-      "Booking, payments, subscriptions",
-      "Full-stack web app builds"
-    ],
-    cta: "Go with Momentum",
-    highlight: false,
-    gradient: "from-orange-500 to-red-500",
-    bgGradient: "from-orange-500/10 to-red-500/10"
+    year: "2025",
+    title: "Global Reach",
+    description: "From India to Silicon Valley, founders worldwide trust HackInversion."
+  },
+  {
+    year: "2025",
+    title: "The Future",
+    description: "Building the next generation of tech companies, one founder at a time."
   }
 ];
 
-function PricingTable() {
+export default function Pricing() {
+
   return (
-    <section id="pricing" className="py-20 px-4">
-      <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Choose Your Plan
-          </h2>
-          <p className="text-neutral-400 text-lg max-w-2xl mx-auto">
-            From quick launches to enterprise-grade solutions, we have the perfect fit for every stage of your journey.
-          </p>
-        </motion.div>
+    <main className="bg-black text-white min-h-screen relative overflow-hidden">
+      {/* Black Background with Sparkles */}
+      <div className="absolute inset-0 bg-black" />
+      <Sparkles 
+        density={250}
+        className="absolute inset-0 pointer-events-none"
+        color="#f59e0b"
+        size={1.2}
+        speed={0.4}
+        opacity={0.4}
+      />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {plans.map((plan, index) => (
-            <motion.div
-              key={plan.name}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.02, y: -5 }}
-              className={`relative group ${plan.highlight ? 'lg:scale-105' : ''}`}
+      {/* Netflix Documentary Intro */}
+      <section className="relative min-h-screen flex items-center justify-center px-6 md:px-20">
+        <div className="max-w-6xl mx-auto text-center">
+          {/* Title with dramatic reveal */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
+            className="mb-20"
+          >
+            <motion.h1
+              initial={{ opacity: 0, y: -100 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.5 }}
+              className="text-6xl md:text-8xl font-black mb-6 tracking-tighter"
+              style={{
+                background: 'linear-gradient(45deg, #ffffff, #cccccc, #ffffff)',
+                backgroundSize: '200% 200%',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                animation: 'shimmer 3s ease-in-out infinite',
+              }}
             >
-              {/* Highlight Badge */}
-              {plan.highlight && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                  <div className="bg-gradient-to-r from-violet-500 to-purple-500 text-white px-4 py-1 rounded-full text-sm font-semibold">
-                    Most Popular
-                  </div>
-                </div>
-              )}
-              
+              THE STORY
+            </motion.h1>
+            
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: "200px" }}
+              transition={{ duration: 1, delay: 1 }}
+              className="h-1 bg-gradient-to-r from-transparent via-white to-transparent mx-auto"
+            />
+          </motion.div>
 
+          {/* Text Generate Effect - Compelling Story */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            className="max-w-6xl mx-auto text-center"
+          >
+            <TextGenerateEffect
+              words="I didn’t start HackInversion to be just another agency.
+I started it because founders were getting wrecked — by bloated quotes, missed deadlines, and devs who ghost mid-project.
 
-              {/* Background Gradient */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${plan.bgGradient} opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-500`} />
-              
-              {/* Card Content */}
-              <div className={`relative bg-neutral-900/90 backdrop-blur-xl border ${plan.highlight ? 'border-violet-500/50' : 'border-white/10'} rounded-2xl p-8 h-full group-hover:border-white/20 transition-all duration-500`}>
-                
-                {/* Icon & Title */}
-                <div className="flex items-center gap-4 mb-6">
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${plan.gradient} flex items-center justify-center`}>
-                    {plan.icon}
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-white">{plan.name}</h3>
-                    <p className="text-2xl font-bold text-white mt-1">{plan.price}</p>
-                  </div>
-                </div>
+India doesn’t need more agencies. It needs executors.
+Hackers. Builders. People who turn vision into working product — fast.
 
-                {/* Subtitle */}
-                <p className="text-neutral-400 font-medium mb-4">{plan.subtitle}</p>
-                
-                {/* Description */}
-                <p className="text-neutral-300 text-sm mb-6 leading-relaxed">{plan.description}</p>
-                
-                {/* Features */}
-                <div className="space-y-3 mb-8">
-                  {plan.features.map((feature, i) => (
-                    <div key={i} className="flex items-start gap-3">
-                      <CheckCircleIcon className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                      <span className="text-neutral-300 text-sm">{feature}</span>
-                    </div>
-                  ))}
-                </div>
+We ship MVPs in 30 days, not 6 months.
+We think like cofounders, not consultants.
+We launch. We iterate. We don’t stop until your product is live and making money.
 
-                {/* CTA Button */}
-                <Link
-                  to="/contact"
-                  className={`w-full inline-flex items-center justify-center gap-2 py-3 px-6 rounded-xl font-semibold transition-all ${
-                    plan.highlight 
-                      ? 'bg-gradient-to-r from-violet-500 to-purple-500 text-white hover:shadow-lg hover:shadow-violet-500/25' 
-                      : 'bg-white/5 text-white hover:bg-white/10'
-                  }`}
+This isn’t just about clean code.
+It’s about flipping the script for every founder who’s ever heard,
+“That’ll take forever.”
+“That’s not possible.”
+
+Welcome to HackInversion —
+Where speed meets execution.
+And ideas become internet-breaking products.
+
+"
+              className="text-3xl md:text-4xl lg:text-5xl font-light leading-relaxed tracking-wide text-white"
+              duration={0.8}
+              filter={true}
+            />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Bento Grid Section */}
+      <section className="relative py-32 px-6 md:px-20">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-5xl md:text-6xl font-bold text-white mb-4">
+              What We Deliver
+            </h2>
+            <p className="text-xl text-gray-400">
+              Our proven approach to MVP development
+            </p>
+          </motion.div>
+          
+          <BentoGridThirdDemo />
+        </div>
+      </section>
+
+      {/* Impact Section - Cinematic */}
+      <section className="relative py-32 px-6 md:px-20">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+          >
+            <motion.h2
+              initial={{ opacity: 0, x: -100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="text-5xl md:text-6xl font-bold mb-12 tracking-tight text-center"
+              style={{
+                background: 'linear-gradient(45deg, #ffffff, #cccccc)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}
+            >
+              Impact So Far
+            </motion.h2>
+            
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+            >
+              {[
+                { icon: "💼", text: "15+ clients served", delay: 0.6 },
+                { icon: "🚀", text: "MVPs delivered in under 10 days", delay: 0.8 },
+                { icon: "🌍", text: "International reach & global founders", delay: 1.0 },
+                { icon: "🧠", text: "Every project treated like our own startup", delay: 1.2 }
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: item.delay }}
+                  viewport={{ once: true }}
+                  className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center hover:bg-white/10 transition-all duration-300 group"
                 >
-                  {plan.cta}
-                  <ArrowRightIcon className="w-4 h-4" />
-                </Link>
+                  <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                    {item.icon}
+                  </div>
+                  <p className="text-lg text-gray-300 font-medium">{item.text}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Timeline Section */}
+      <section className="relative py-32 px-6 md:px-20">
+        <div className="max-w-6xl mx-auto">
+          <motion.h2
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-5xl md:text-6xl font-bold mb-16 tracking-tight text-center"
+            style={{
+              background: 'linear-gradient(45deg, #ffffff, #cccccc)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}
+          >
+            The Journey
+          </motion.h2>
+          
+          <div className="relative">
+            {/* Timeline Line */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-white/20 to-white/5" />
+            
+            {timeline.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+                viewport={{ once: true }}
+                className={`flex items-center mb-16 ${
+                  index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
+                }`}
+              >
+                <div className={`w-1/2 ${index % 2 === 0 ? 'pr-12 text-right' : 'pl-12 text-left'}`}>
+                  <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300">
+                    <div className="text-3xl font-bold text-white mb-2">{item.year}</div>
+                    <div className="text-xl font-semibold text-gray-300 mb-3">{item.title}</div>
+                    <div className="text-gray-400">{item.description}</div>
+                  </div>
+                </div>
+                
+                {/* Timeline Dot */}
+                <div className="relative z-10 w-4 h-4 bg-white rounded-full border-4 border-black" />
+                
+                <div className="w-1/2" />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+
+      {/* Founder Section */}
+      <section className="relative py-32 px-6 md:px-20">
+        <div className="max-w-6xl mx-auto">
+          <motion.h2
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-5xl md:text-6xl font-bold mb-16 tracking-tight text-center"
+            style={{
+              background: 'linear-gradient(45deg, #ffffff, #cccccc)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}
+          >
+            Meet The Founder
+          </motion.h2>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Founder Photo */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="relative w-full max-w-md mx-auto">
+                {/* Subtle background glow */}
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-3xl blur-2xl" />
+                
+                {/* Clean photo container */}
+                <div className="relative bg-gradient-to-br from-cyan-500/10 to-blue-500/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 shadow-xl">
+                  
+                  {/* Photo with minimal frame */}
+                  <div className="w-64 h-64 mx-auto rounded-2xl overflow-hidden bg-gradient-to-br from-cyan-500 to-blue-500 p-1 shadow-lg">
+                    <div className="w-full h-full rounded-2xl overflow-hidden">
+                      <img 
+                        src="/Abhishek.jpg" 
+                        alt="Abhishek - Founder of HackInversion"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+                  
+                  {/* Simple corner accents */}
+                  <div className="absolute top-2 right-2 w-3 h-3 bg-cyan-400 rounded-full" />
+                  <div className="absolute bottom-2 left-2 w-3 h-3 bg-blue-400 rounded-full" />
+                </div>
               </div>
             </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// --- FAQ Section ---
-const faqs = [
-  {
-    question: "What's the difference between the plans?",
-    answer: "Launch 9 is perfect for simple one-page sites. Elevate includes multi-page sites with CMS and advanced features. Momentum is a full-scale web application with backend systems, authentication, and SaaS-like functionality. For enterprise-grade solutions, check out our dedicated Enterprise page."
-  },
-  {
-    question: "Can I upgrade my plan later?",
-    answer: "Absolutely! You can start with Launch 9 and upgrade to Elevate or Momentum as your business grows. We'll credit your initial investment toward the higher plan."
-  },
-  {
-    question: "What's included in the pricing?",
-    answer: "All plans include custom design, development, mobile optimization, basic SEO, and source code ownership. Higher plans include additional features like CMS, backend systems, and extended support."
-  },
-  {
-    question: "How long does development take?",
-    answer: "Launch 9: 7-10 days, Elevate: 2-3 weeks, Momentum: 4-6 weeks. We provide weekly progress updates and work in agile sprints to ensure quality delivery."
-  },
-  {
-    question: "Do you provide hosting and domain setup?",
-    answer: "Yes! We help with hosting setup and domain configuration. You'll own everything - hosting, domain, and source code. We recommend reliable hosting providers and can handle the technical setup."
-  }
-];
-
-function FAQSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  return (
-    <section className="py-20 px-4">
-      <div className="max-w-4xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Frequently Asked Questions
-          </h2>
-          <p className="text-neutral-400 text-lg">
-            Everything you need to know about our pricing and process.
-          </p>
-        </motion.div>
-
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="bg-neutral-900/50 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden"
-            >
-              <button
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-white/5 transition-colors"
-              >
-                <span className="text-white font-medium">{faq.question}</span>
-                <motion.div
-                  animate={{ rotate: openIndex === index ? 180 : 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <svg className="w-5 h-5 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </motion.div>
-              </button>
-              
-              <motion.div
-                initial={{ height: 0 }}
-                animate={{ height: openIndex === index ? 'auto' : 0 }}
-                transition={{ duration: 0.3 }}
-                className="overflow-hidden"
-              >
-                <div className="px-6 pb-4">
-                  <p className="text-neutral-300 leading-relaxed">{faq.answer}</p>
-                </div>
-              </motion.div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// --- CTA Section ---
-function CTASection() {
-  return (
-    <section className="py-20 px-4">
-      <div className="max-w-4xl mx-auto text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Not sure where to start? Let's talk.
-          </h2>
-          <p className="text-neutral-400 text-lg mb-8 max-w-2xl mx-auto">
-            Book a free consultation to discuss your project and find the perfect plan for your needs.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <a
-                href="https://wa.me/1234567890"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-semibold px-8 py-4 rounded-xl hover:shadow-lg hover:shadow-green-500/25 transition-all"
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.569-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
-                </svg>
-                WhatsApp
-              </a>
-            </motion.div>
             
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-3 bg-gradient-to-r from-violet-500 to-purple-500 text-white font-semibold px-8 py-4 rounded-xl hover:shadow-lg hover:shadow-violet-500/25 transition-all"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3a2 2 0 012-2h4a2 2 0 012 2v4m-6 0V3a2 2 0 012-2h4a2 2 0 012 2v4M9 7h6M9 7H5a2 2 0 00-2 2v8a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-4" />
-                </svg>
-                Schedule Call
-              </Link>
+            {/* Founder Bio */}
+            <motion.div
+              initial={{ opacity: 0, x: 100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
+              <div>
+                <h3 className="text-3xl md:text-4xl font-bold text-white mb-2">
+                  Abhishek
+                </h3>
+                <p className="text-xl text-cyan-400 font-semibold mb-4">
+                  Tech Founder & Full-Stack Developer
+                </p>
+              </div>
+              
+              <div className="space-y-4 text-gray-300 leading-relaxed">
+                <p>
+                  From coding in coffee shops to building MVPs that raise millions, I've lived the founder's journey. 
+                  Every line of code I write comes from a place of understanding what it takes to build, launch, and scale.
+                </p>
+                <p>
+                  I don't just build software—I build companies. With 50+ successful MVPs under my belt, I've learned 
+                  that speed, quality, and founder empathy are the holy trinity of successful product development.
+                </p>
+                <p>
+                  When I'm not coding, you'll find me mentoring other founders, exploring new technologies, or 
+                  planning the next big thing. Because in this world, the best founders are the ones who never stop building.
+                </p>
+              </div>
+              
+                             {/* Social Links */}
+               <div className="flex flex-wrap gap-4 pt-4">
+                 <motion.a
+                   href="https://www.linkedin.com/in/abhishek-patil-38032b1b4/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   whileHover={{ scale: 1.05 }}
+                   whileTap={{ scale: 0.95 }}
+                   className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl text-white font-semibold hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300"
+                 >
+                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                   </svg>
+                   LinkedIn
+                 </motion.a>
+                 
+                 <motion.a
+                   href="https://www.instagram.com/abhishek.patil_/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   whileHover={{ scale: 1.05 }}
+                   whileTap={{ scale: 0.95 }}
+                   className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 rounded-xl text-white font-semibold hover:shadow-lg hover:shadow-pink-500/30 transition-all duration-300"
+                 >
+                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                     <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987 6.62 0 11.987-5.367 11.987-11.987C24.014 5.367 18.637.001 12.017.001zM8.449 16.988c-1.297 0-2.448-.49-3.323-1.297C4.198 14.895 3.708 13.744 3.708 12.447s.49-2.448 1.297-3.323c.875-.807 2.026-1.297 3.323-1.297s2.448.49 3.323 1.297c.807.875 1.297 2.026 1.297 3.323s-.49 2.448-1.297 3.323c-.875.807-2.026 1.297-3.323 1.297zm7.83-9.781c-.49 0-.875-.385-.875-.875s.385-.875.875-.875.875.385.875.875-.385.875-.875.875zm-7.83 12.435c-2.026 0-3.744-.875-5.076-2.207C2.207 15.103 1.332 13.385 1.332 11.359s.875-3.744 2.207-5.076C4.871 4.951 6.589 4.076 8.615 4.076s3.744.875 5.076 2.207c1.332 1.332 2.207 3.05 2.207 5.076s-.875 3.744-2.207 5.076c-1.332 1.332-3.05 2.207-5.076 2.207z"/>
+                   </svg>
+                   Instagram
+                 </motion.a>
+               </div>
+              
+              {/* Stats */}
+              <div className="grid grid-cols-3 gap-4 pt-6">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-white">50+</div>
+                  <div className="text-sm text-gray-400">MVPs Built</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-white">30</div>
+                  <div className="text-sm text-gray-400">Days Avg</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-white">100%</div>
+                  <div className="text-sm text-gray-400">Success Rate</div>
+                </div>
+              </div>
             </motion.div>
           </div>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
+        </div>
+      </section>
 
-// --- Main Page ---
-export default function Pricing() {
-  return (
-    <div className="bg-neutral-950 min-h-screen flex flex-col font-inter relative">
-      <AnimatedBackground variant="colorful" intensity="high" />
-      <Hero />
-      <PricingTable />
-      <FAQSection />
-      <CTASection />
-    </div>
+      {/* Cinematic CTA */}
+      <motion.section
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+        className="relative py-32 px-6 md:px-20 text-center"
+      >
+        {/* Background effect */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black" />
+        
+        <div className="relative z-10 max-w-4xl mx-auto">
+          <motion.h2
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-6xl font-bold mb-8 tracking-tight"
+            style={{
+              background: 'linear-gradient(45deg, #ffffff, #cccccc)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}
+          >
+            Want me to be your tech cofounder?
+          </motion.h2>
+          
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="text-xl md:text-2xl text-gray-400 mb-12"
+          >
+            {/* DM "BUILD" or visit{' '}
+            <Link 
+              to="/contact" 
+              className="text-cyan-400 underline hover:text-cyan-300 transition-colors duration-300"
+            >
+              hackinversion.com
+            </Link> */}
+          </motion.p>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            viewport={{ once: true }}
+            className="flex flex-col sm:flex-row gap-6 justify-center"
+          >
+            <Link
+              to="/contact"
+              className="group inline-flex items-center justify-center gap-3 py-4 px-10 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-lg hover:shadow-2xl hover:shadow-cyan-500/30 transition-all duration-300 transform hover:scale-105"
+            >
+              <span>Start Building</span>
+              <motion.div
+                animate={{ x: [0, 5, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
+                →
+              </motion.div>
+            </Link>
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* Custom CSS for shimmer effect */}
+      <style>{`
+        @keyframes shimmer {
+          0% { background-position: -200% 0; }
+          100% { background-position: 200% 0; }
+        }
+      `}</style>
+    </main>
   );
 } 

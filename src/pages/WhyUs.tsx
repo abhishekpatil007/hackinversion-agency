@@ -18,12 +18,12 @@ import {
   PaintBrushIcon,
   CpuChipIcon
 } from '@heroicons/react/24/solid';
-import AnimatedBackground from '../components/layout/AnimatedBackground';
+
 
 // Hero Section
 function HeroSection() {
   return (
-    <section className="relative py-20 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 text-center overflow-hidden bg-black">
+            <section className="relative py-20 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 text-center overflow-hidden">
       <div className="relative max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -71,7 +71,7 @@ function HeroSection() {
             Start Your MVP <RocketLaunchIcon className="w-4 h-4 sm:w-5 sm:h-5" />
           </Link>
           <Link
-            to="/our-work"
+            to="/OurWork"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/5 text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-xl hover:bg-white/10 transition-all border border-white/10 text-base sm:text-lg"
           >
             See Our Work
@@ -215,7 +215,7 @@ const metrics = [
 
 function SuccessMetrics() {
   return (
-    <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-black">
+    <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -381,7 +381,7 @@ const deliverables = [
 
 function WhatYouGet() {
   return (
-    <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-black">
+    <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -503,7 +503,7 @@ function WhyFoundersLoveUs() {
 // Final CTA
 function FinalCTA() {
   return (
-    <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-black">
+    <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto text-center">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
@@ -533,7 +533,7 @@ function FinalCTA() {
               Book Strategy Call <ArrowRightIcon className="w-4 h-4 sm:w-5 sm:h-5" />
             </Link>
             <Link
-              to="/our-work"
+              to="/OurWork"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/5 text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-xl hover:bg-white/10 transition-all border border-white/10 text-base sm:text-lg"
             >
               View Success Stories
@@ -566,8 +566,8 @@ function FinalCTA() {
 
 export default function WhyUs() {
   return (
-    <div className="min-h-screen bg-black text-white relative">
-      <AnimatedBackground variant="colorful" intensity="medium" />
+    <div className="min-h-screen text-white relative">
+      
       
       <HeroSection />
       <WhatMakesUsDifferent />

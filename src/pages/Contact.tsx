@@ -9,26 +9,28 @@ import {
   CalendarDaysIcon,
   StarIcon
 } from '@heroicons/react/24/solid';
-import AnimatedBackground from '../components/layout/AnimatedBackground';
+import Globe1 from '../components/mvpblocks/globe1';
+
+
 
 
 
 const contactMethods = [
   {
     icon: <CalendarDaysIcon className="w-8 h-8" />,
-    title: 'Book a Strategy Call',
-    description: 'Free 30-minute consultation to discuss your project',
-    action: 'Schedule Now',
-    link: 'https://calendly.com/abhishek01patil/30min',
+    title: 'Contact Us',
+    description: 'Tell us about your project and we\'ll get back to you',
+    action: 'Send Message',
+    link: '#contact-form',
     gradient: 'from-violet-500 to-purple-500',
     badge: 'Most Popular'
   },
   {
     icon: <EnvelopeIcon className="w-8 h-8" />,
     title: 'Send us an Email',
-    description: 'abhishek01patil@gmail.com',
+    description: 'founder@hackinversion.com',
     action: 'Send Email',
-    link: 'mailto:abhishek01patil@gmail.com?subject=Project Inquiry&body=Hi HACKINVERSION team,%0D%0A%0D%0AI would like to discuss a project with you.%0D%0A%0D%0AProject type: %0D%0ABudget range: %0D%0ATimeline: %0D%0A%0D%0APlease let me know when we can schedule a call.%0D%0A%0D%0AThank you!',
+    link: 'mailto:founder@hackinversion.com?subject=Project Inquiry&body=Hi HACKINVERSION team,%0D%0A%0D%0AI would like to discuss a project with you.%0D%0A%0D%0AProject type: %0D%0ATimeline: %0D%0A%0D%0APlease let me know when we can discuss this further.%0D%0A%0D%0AThank you!',
     gradient: 'from-blue-500 to-cyan-500',
     badge: 'Fast Response'
   }
@@ -41,7 +43,7 @@ const faqItems = [
   },
   {
     question: "What information do you need to get started?",
-    answer: "We'll need to understand your business goals, target audience, key features, timeline, and budget. Don't worry if you don't have all the details - we'll help you figure it out during our strategy call."
+    answer: "We'll need to understand your business goals, target audience, key features, timeline, and budget. Don't worry if you don't have all the details - we'll help you figure it out during our consultation."
   },
   {
     question: "Do you work with international clients?",
@@ -62,7 +64,7 @@ const responseStats = [
   {
     icon: <CalendarDaysIcon className="w-6 h-6" />,
     metric: '< 24 hours',
-    label: 'Call Scheduling'
+    label: 'Response Time'
   },
   {
     icon: <RocketLaunchIcon className="w-6 h-6" />,
@@ -86,7 +88,7 @@ function ContactHeroSection() {
   };
 
   return (
-    <section className="relative py-20 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 text-center overflow-hidden bg-black">
+    <section className="relative py-20 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 text-center overflow-hidden">
       <div className="relative max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -148,11 +150,18 @@ function ContactHeroSection() {
 // Contact Methods Section
 function ContactMethodsSection() {
   const handleContactMethod = (method: any) => {
-    window.open(method.link, '_blank');
+    if (method.link === '#contact-form') {
+      const element = document.getElementById('contact-form');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      window.open(method.link, '_blank');
+    }
   };
 
   return (
-    <section id="contact-methods" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-neutral-950/50">
+    <section id="contact-methods" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -165,7 +174,7 @@ function ContactMethodsSection() {
             Choose Your Preferred Way to Connect
           </h2>
           <p className="text-lg sm:text-xl text-neutral-400 max-w-3xl mx-auto leading-relaxed">
-            Whether you want to jump on a call or send us an email - we're here to help you succeed.
+            Whether you want to send us a message or email - we're here to help you succeed.
           </p>
         </motion.div>
 
@@ -269,7 +278,6 @@ function ContactFormSection() {
     name: '',
     email: '',
     company: '',
-    budget: '',
     projectType: '',
     message: '',
     terms: false
@@ -305,7 +313,6 @@ function ContactFormSection() {
           name: '',
           email: '',
           company: '',
-          budget: '',
           projectType: '',
           message: '',
           terms: false
@@ -319,14 +326,13 @@ function ContactFormSection() {
 Name: ${formData.name}
 Email: ${formData.email}
 Company: ${formData.company}
-Budget: ${formData.budget}
 Project Type: ${formData.projectType}
 
 Message:
 ${formData.message}
       `;
       
-      window.location.href = `mailto:abhishek01patil@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+              window.location.href = `mailto:founder@hackinversion.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
       setSubmitStatus('success');
     } finally {
       setIsSubmitting(false);
@@ -335,7 +341,7 @@ ${formData.message}
 
   return (
     <section id="contact-form" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-neutral-950/50">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -351,13 +357,15 @@ ${formData.message}
           </p>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="bg-neutral-900/80 backdrop-blur-xl border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12"
-        >
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          {/* Contact Form */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="bg-neutral-900/80 backdrop-blur-xl border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12"
+          >
           {submitStatus === 'success' && (
             <div className="mb-6 p-4 bg-green-500/10 border border-green-500/20 rounded-xl">
               <p className="text-green-400 text-center text-sm sm:text-base">✅ Message sent successfully! We'll get back to you soon.</p>
@@ -404,39 +412,19 @@ ${formData.message}
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-        <div>
-                <label className="block text-sm font-medium text-white mb-2" htmlFor="company">
-                  Company Name
-                </label>
-                <input 
-                  className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 sm:py-4 text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500/50 transition-all text-sm sm:text-base" 
-                  id="company" 
-                  name="company" 
-                  type="text" 
-                  placeholder="Your Company" 
-                  value={formData.company}
-                  onChange={handleInputChange}
-                />
-        </div>
-        <div>
-                <label className="block text-sm font-medium text-white mb-2" htmlFor="budget">
-                  Project Budget
-                </label>
-                <select 
-                  className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 sm:py-4 text-white focus:outline-none focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500/50 transition-all text-sm sm:text-base"
-                  id="budget"
-                  name="budget"
-                  value={formData.budget}
-                  onChange={handleInputChange}
-                >
-                  <option value="">Select budget range</option>
-                  <option value="5k-10k">$5K - $10K</option>
-                  <option value="10k-25k">$10K - $25K</option>
-                  <option value="25k-50k">$25K - $50K</option>
-                  <option value="50k+">$50K+</option>
-                </select>
-              </div>
+            <div>
+              <label className="block text-sm font-medium text-white mb-2" htmlFor="company">
+                Company Name
+              </label>
+              <input 
+                className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 sm:py-4 text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500/50 transition-all text-sm sm:text-base" 
+                id="company" 
+                name="company" 
+                type="text" 
+                placeholder="Your Company" 
+                value={formData.company}
+                onChange={handleInputChange}
+              />
             </div>
 
             <div>
@@ -502,6 +490,10 @@ ${formData.message}
             </motion.button>
           </form>
         </motion.div>
+
+        {/* Globe Component */}
+        <Globe1 />
+        </div>
       </div>
     </section>
   );
@@ -570,8 +562,8 @@ function FAQSection() {
 
 export default function Contact() {
   return (
-    <div className="min-h-screen bg-black text-white relative">
-      <AnimatedBackground variant="dark" intensity="medium" />
+    <div className="min-h-screen text-white relative">
+      
       
       <ContactHeroSection />
       <ContactMethodsSection />

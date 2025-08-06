@@ -24,7 +24,7 @@ import {
   PhoneIcon,
   VideoCameraIcon
 } from '@heroicons/react/24/solid';
-import AnimatedBackground from '../components/layout/AnimatedBackground';
+
 
 // Hero Section
 function HeroSection() {
@@ -124,15 +124,13 @@ function HeroSection() {
             </span>
           </Link>
 
-                     <a
-             href="https://calendly.com/hackinverson-enterprise"
-             target="_blank"
-             rel="noopener noreferrer"
+                     <Link
+             to="/contact"
              className="group inline-flex items-center justify-center gap-3 bg-white/5 backdrop-blur-xl border border-white/20 text-white font-medium px-8 py-4 rounded-xl text-lg hover:bg-white/10 transition-all"
           >
             <CalendarDaysIcon className="w-6 h-6" />
-            Book Strategy Call
-          </a>
+            Contact Us
+          </Link>
         </motion.div>
 
 
@@ -345,7 +343,7 @@ function WhyEnterpriseSection() {
             />
             <span className="relative flex items-center gap-3">
               <PhoneIcon className="w-6 h-6" />
-              Schedule Enterprise Consultation
+              Contact Us
               <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </span>
           </Link>
@@ -796,15 +794,13 @@ function DedicatedTeamSection() {
                 </span>
               </Link>
 
-              <a
-                href="https://calendly.com/your-calendar-link"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to="/contact"
                 className="inline-flex items-center justify-center gap-2 bg-white/5 text-white font-medium px-6 py-3 rounded-lg hover:bg-white/10 transition-all"
               >
                 <CalendarDaysIcon className="w-5 h-5" />
-                Schedule Quick Call
-              </a>
+                Contact Us
+              </Link>
             </div>
           </div>
 
@@ -1181,15 +1177,13 @@ function EnterpriseInvestmentSection() {
             transition={{ duration: 0.8, delay: 1.0 }}
             viewport={{ once: true }}
           >
-            <a
-              href="https://calendly.com/enterprise-pricing-call"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/contact"
               className="w-full inline-flex items-center justify-center gap-3 bg-white/5 backdrop-blur-xl border border-white/20 text-white font-medium px-8 py-4 rounded-xl text-lg hover:bg-white/10 transition-all"
             >
               <PhoneIcon className="w-6 h-6" />
-              Discuss Pricing
-            </a>
+              Contact Us
+            </Link>
           </motion.div>
         </div>
       </div>
@@ -1226,7 +1220,7 @@ function FinalCTASection() {
               </h2>
               
               <p className="text-xl md:text-2xl text-slate-300 mb-16 leading-relaxed font-light max-w-3xl mx-auto">
-                Book a free 30-minute discovery call. We'll explore your vision, 
+                Tell us about your project. We'll explore your vision, 
                 discuss technical requirements, and create a custom roadmap for your success.
               </p>
 
@@ -1242,7 +1236,7 @@ function FinalCTASection() {
                 />
                 <span className="relative z-10 flex items-center gap-4">
                   <RocketLaunchIcon className="w-8 h-8" />
-                  Book Discovery Call
+                  Contact Us
                   <ArrowRightIcon className="w-8 h-8 group-hover:translate-x-1 transition-transform" />
                 </span>
               </Link>
@@ -1276,8 +1270,8 @@ function FinalCTASection() {
 // Main Page Component
 export default function Enterprise() {
   return (
-    <div className="min-h-screen bg-[#0A0A0A] text-white font-inter relative overflow-hidden">
-      <AnimatedBackground variant="default" intensity="medium" />
+    <div className="min-h-screen text-white font-inter relative overflow-hidden">
+      
       
       <HeroSection />
       <WhatYouGetSection />

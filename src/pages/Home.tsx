@@ -17,7 +17,9 @@ import {
   StarIcon,
   UserGroupIcon
 } from '@heroicons/react/24/solid';
-import AnimatedBackground from '../components/layout/AnimatedBackground';
+
+import { HomeDisplayCards } from '../components/ui/home-display-cards';
+import { Sparkles } from '../components/ui/sparkles';
 
 // Updated services with modern approach
 const coreFeatures = [
@@ -131,7 +133,7 @@ function HeroAnimatedBG() {
 // Core Features Section
 function CoreFeaturesSection() {
   return (
-    <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-black">
+    <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -184,8 +186,8 @@ function CoreFeaturesSection() {
 // Success Metrics Section
 function SuccessMetricsSection() {
   return (
-    <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-neutral-950/50">
-      <div className="max-w-6xl mx-auto">
+    <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 relative">
+      <div className="max-w-6xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -249,43 +251,15 @@ function WhatWeBuildSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {buildTypes.map((build, index) => (
-            <motion.div
-              key={build.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.02, y: -5 }}
-              className="group relative"
-            >
-              <div className={`absolute inset-0 bg-gradient-to-br ${build.gradient} opacity-5 rounded-2xl sm:rounded-3xl blur-xl group-hover:opacity-10 transition-opacity duration-500`} />
-              
-              <div className="relative bg-neutral-900/80 backdrop-blur-xl border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 h-full group-hover:border-white/20 transition-all duration-500">
-                <div className={`w-16 h-16 sm:w-20 sm:h-20 rounded-xl sm:rounded-2xl bg-gradient-to-br ${build.gradient} flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <div className="text-white">
-                    {build.icon}
-                  </div>
-                </div>
-                
-                <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">{build.title}</h3>
-                <p className="text-sm sm:text-base text-neutral-300 mb-4 sm:mb-6 leading-relaxed">{build.description}</p>
-                
-                <div className="flex flex-wrap gap-2">
-                  {build.tech.map((tech, i) => (
-                    <span
-                      key={i}
-                      className="text-xs px-2 sm:px-3 py-1 rounded-full bg-white/10 text-neutral-300 border border-white/10"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="flex justify-center"
+        >
+          <HomeDisplayCards />
+        </motion.div>
       </div>
     </section>
   );
@@ -294,8 +268,8 @@ function WhatWeBuildSection() {
 // Ready to Build Section
 function ReadyToBuildSection() {
   return (
-    <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-neutral-950/50">
-      <div className="max-w-4xl mx-auto text-center">
+    <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 relative">
+      <div className="max-w-4xl mx-auto text-center relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -349,7 +323,7 @@ function ReadyToBuildSection() {
             Enterprise Solutions
           </Link>
           <Link
-            to="/our-work"
+                            to="/OurWork"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/5 text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-xl hover:bg-white/10 transition-all border border-white/10 text-base sm:text-lg"
           >
             See Our Work
@@ -383,9 +357,7 @@ function ReadyToBuildSection() {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#0A0A0A] text-white font-inter relative">
-      <AnimatedBackground variant="default" intensity="medium" />
-      
+    <div className="min-h-screen text-white font-inter relative">
       {/* Hero Section - MOBILE OPTIMIZED */}
       <section className="relative min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 text-center overflow-hidden">
         <HeroAnimatedBG />
@@ -422,7 +394,7 @@ export default function Home() {
           transition={{ duration: 0.5, delay: 0.7 }}
         >
           <Link to="/contact" className="btn inline-flex items-center gap-2 font-satoshi text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4">
-            Book a Call <ArrowRightIcon className="w-4 h-4 sm:w-5 sm:h-5" />
+            Contact Us <ArrowRightIcon className="w-4 h-4 sm:w-5 sm:h-5" />
           </Link>
         </motion.div>
       </section>

@@ -14,24 +14,24 @@ import {
 
 const footerSections = {
   services: [
-    { name: "MVP Development", href: "/our-work" },
-    { name: "Web Applications", href: "/our-work" },
-    { name: "Mobile Apps", href: "/our-work" },
-    { name: "SaaS Platforms", href: "/our-work" },
-    { name: "E-Commerce", href: "/our-work" },
+    { name: "MVP Development", href: "/OurWork" },
+    { name: "Web Applications", href: "/OurWork" },
+    { name: "Mobile Apps", href: "/OurWork" },
+    { name: "SaaS Platforms", href: "/OurWork" },
+    { name: "E-Commerce", href: "/OurWork" },
     { name: "Product Strategy", href: "/contact" }
   ],
   company: [
-    { name: "Why Choose Us", href: "/why-us" },
-    { name: "Our Work", href: "/our-work" },
+    { name: "Why Choose Us", href: "/WhyUs" },
+    { name: "Our Work", href: "/OurWork" },
     { name: "Who We Help", href: "/who-we-help" },
+    { name: "Our Story", href: "/our-story" },
     { name: "Contact", href: "/contact" },
-    { name: "FAQ", href: "/faq" },
-    { name: "Pricing", href: "/pricing" }
+    { name: "FAQ", href: "/FAQ" }
   ],
   resources: [
     { name: "Blog", href: "/blog" },
-    { name: "Case Studies", href: "/our-work" },
+    { name: "Case Studies", href: "/OurWork" },
     { name: "Free Consultation", href: "/contact" },
     { name: "Project Estimate", href: "/contact" },
     { name: "Tech Stack Guide", href: "/blog" },
@@ -234,8 +234,8 @@ export default function Footer() {
                   </div>
                   <div>
                     <div className="text-sm text-neutral-400">Email us</div>
-                    <a href="mailto:abhishek01patil@gmail.com" className="font-medium">
-                      abhishek01patil@gmail.com
+                            <a href="mailto:founder@hackinversion.com" className="font-medium">
+          founder@hackinversion.com
                     </a>
                   </div>
                 </div>
@@ -244,12 +244,12 @@ export default function Footer() {
                   <div className="w-12 h-12 bg-neutral-800 rounded-2xl flex items-center justify-center group-hover:bg-violet-500/20 transition-colors">
                     <CalendarDaysIcon className="w-6 h-6 text-violet-400" />
                   </div>
-                  <div>
-                    <div className="text-sm text-neutral-400">Schedule a call</div>
-                    <a href="https://calendly.com/abhishek01patil/30min" target="_blank" rel="noopener noreferrer" className="font-medium">
-                      Book 30-min Strategy Session
-                    </a>
-                  </div>
+                                      <div>
+                      <div className="text-sm text-neutral-400">Contact us</div>
+                      <Link to="/contact" className="font-medium">
+                        Send us a message
+                      </Link>
+                    </div>
                 </div>
                 
                 <div className="flex items-center gap-4 text-neutral-300">
@@ -442,7 +442,7 @@ export default function Footer() {
               </motion.div>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Link
-                  to="/our-work"
+                  to="/OurWork"
                   className="inline-flex items-center gap-3 bg-white/5 backdrop-blur-sm text-white font-semibold px-10 py-5 rounded-2xl hover:bg-white/10 transition-all border border-white/10 text-lg"
                 >
                   View Our Work

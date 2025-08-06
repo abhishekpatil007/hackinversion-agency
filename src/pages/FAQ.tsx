@@ -10,7 +10,7 @@ import {
   ArrowRightIcon,
   CheckCircleIcon
 } from '@heroicons/react/24/outline';
-import AnimatedBackground from '../components/layout/AnimatedBackground';
+
 
 const faqCategories = [
   {
@@ -208,8 +208,8 @@ export default function FAQ() {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-neutral-950 via-neutral-900 to-neutral-950 relative">
-      <AnimatedBackground variant="colorful" intensity="medium" />
+          <div className="min-h-screen relative">
+      
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-4 overflow-hidden">
         {/* Background Effects */}

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import AnimatedBackground from '../components/layout/AnimatedBackground';
+
 
 const post = {
   title: "How to Build and Validate Your MVP in 21 Days",
@@ -11,8 +11,8 @@ const post = {
 
 export default function BlogPost() {
   return (
-    <div className="min-h-screen bg-[#0A0A0A] text-white py-20 px-4 flex flex-col items-center relative">
-      <AnimatedBackground variant="dark" intensity="low" />
+    <div className="min-h-screen text-white py-20 px-4 flex flex-col items-center relative">
+      
       
       <div className="max-w-2xl w-full mx-auto mb-8 relative z-10">
         <Link to="/blog" className="text-indigo-400 hover:underline text-sm">← Back to Blog</Link>
@@ -29,7 +29,7 @@ export default function BlogPost() {
       </article>
       <footer className="mt-8 text-center relative z-10">
         <h2 className="text-2xl font-bold mb-4">Want more insights?</h2>
-        <Link to="/contact" className="btn inline-flex items-center gap-2">Book a Call</Link>
+        <Link to="/contact" className="btn inline-flex items-center gap-2">Contact Us</Link>
       </footer>
     </div>
   );

@@ -20,12 +20,13 @@ import {
   AcademicCapIcon,
   ShoppingBagIcon
 } from '@heroicons/react/24/solid';
-import AnimatedBackground from '../components/layout/AnimatedBackground';
+
+import { Component as TypewriterTestimonial } from '../components/ui/typewriter-testimonial';
 
 // --- Hero Section ---
 function HeroSection() {
   return (
-    <section className="relative py-32 px-4 text-center overflow-hidden bg-black">
+    <section className="relative py-32 px-4 text-center overflow-hidden">
       <div className="relative max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -73,7 +74,7 @@ function HeroSection() {
             Find Your Path <ArrowRightIcon className="w-5 h-5" />
           </Link>
           <Link
-            to="/our-work"
+            to="/OurWork"
             className="inline-flex items-center gap-2 bg-white/5 text-white font-semibold px-8 py-4 rounded-xl hover:bg-white/10 transition-all border border-white/10 text-lg"
           >
             View Our Work
@@ -174,7 +175,7 @@ const helpCategories = [
 
 function WhoWeHelpCards() {
   return (
-    <section className="py-24 px-4 bg-black">
+    <section className="py-24 px-4">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -611,6 +612,103 @@ function ProcessSection() {
   );
 }
 
+// --- Testimonials Section ---
+function TestimonialsSection() {
+  const testimonials = [
+    {
+      image: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      audio: 'audio_1.mp3',
+      text: 'Hackinversion transformed our startup from concept to live product in just 4 weeks. Their technical expertise and product thinking made all the difference.',
+      name: 'Alex Chen',
+      jobtitle: 'Founder, TechFlow',
+    },
+    {
+      image: 'https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      audio: 'audio_2.mp3',
+      text: 'As a solo founder, I needed a technical cofounder who could execute fast. Hackinversion delivered beyond my expectations - they truly think like product people.',
+      name: 'Sarah Johnson',
+      jobtitle: 'CEO, InnovateLab',
+    },
+    {
+      image: 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      audio: 'audio_3.mp3',
+      text: 'The speed and quality of delivery was incredible. They built our MVP in 30 days and helped us validate our market assumptions quickly.',
+      name: 'Michael Rodriguez',
+      jobtitle: 'CTO, DataViz Pro',
+    },
+    {
+      image: 'https://images.unsplash.com/photo-1586297135537-94bc9ba060aa?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      audio: 'audio_4.mp3',
+      text: 'Working with Hackinversion was like having a world-class development team on demand. They understood our vision and executed flawlessly.',
+      name: 'Emily Zhang',
+      jobtitle: 'Product Manager, ScaleUp',
+    },
+    {
+      image: 'https://images.unsplash.com/photo-1507003211169-0a6dd7228f2d?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      audio: 'audio_5.mp3',
+      text: 'They didn\'t just build our app - they became our technical partners. Their insights on architecture and scalability were invaluable.',
+      name: 'David Kim',
+      jobtitle: 'Founder, CloudSync',
+    },
+    {
+      image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      audio: 'audio_6.mp3',
+      text: 'The combination of speed, quality, and strategic thinking is rare. Hackinversion delivered exactly what we needed to get to market fast.',
+      name: 'Lisa Thompson',
+      jobtitle: 'VP Engineering, GrowthTech',
+    },
+    {
+      image: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      audio: 'audio_7.mp3',
+      text: 'From wireframes to production in weeks. Their modern tech stack and deployment expertise gave us a competitive advantage.',
+      name: 'Robert Wilson',
+      jobtitle: 'Technical Lead, StartupX',
+    },
+    {
+      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      audio: 'audio_8.mp3',
+      text: 'Hackinversion is the technical cofounder every startup needs. They think strategically, build fast, and deliver results.',
+      name: 'Jennifer Park',
+      jobtitle: 'CEO, FutureFlow',
+    },
+  ];
+
+  return (
+    <section className="py-24 px-4 bg-neutral-950/30">
+      <div className="max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <div className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-6 py-3 text-sm text-violet-300 mb-8">
+            <StarIcon className="w-4 h-4 text-violet-400" />
+            <span className="font-medium">Client Success Stories</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            What Our Clients Say
+          </h2>
+          <p className="text-xl text-neutral-300 max-w-3xl mx-auto leading-relaxed">
+            Hear from founders and teams who've transformed their ideas into successful products with our help.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="flex justify-center"
+        >
+          <TypewriterTestimonial testimonials={testimonials} />
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 // --- Final CTA Section ---
 function FinalCTASection() {
   return (
@@ -663,7 +761,7 @@ function FinalCTASection() {
             Book Strategy Call <ArrowRightIcon className="w-5 h-5" />
           </Link>
           <Link
-            to="/our-work"
+            to="/OurWork"
             className="inline-flex items-center gap-2 bg-white/5 text-white font-semibold px-8 py-4 rounded-xl hover:bg-white/10 transition-all border border-white/10 text-lg"
           >
             View Our Work
@@ -698,14 +796,14 @@ function FinalCTASection() {
 // --- Main Page ---
 export default function WhoWeHelp() {
   return (
-    <div className="bg-black min-h-screen flex flex-col font-inter relative">
-      <AnimatedBackground variant="default" intensity="low" />
+    <div className="min-h-screen flex flex-col font-inter relative">
       <HeroSection />
       <WhoWeHelpCards />
       <IndustriesSection />
       <TechnologiesSection />
       <SuccessMetricsSection />
       <ProcessSection />
+      <TestimonialsSection />
       <FinalCTASection />
     </div>
   );

@@ -1,4 +1,4 @@
-import AnimatedBackground from '../components/layout/AnimatedBackground';
+
 
 const featuredPost = {
   title: "How to Build and Validate Your MVP in 21 Days",
@@ -48,8 +48,8 @@ const categories = ["All", "MVP", "Startup", "Tech Stack", "UX", "Growth"];
 
 export default function Blog() {
   return (
-    <div className="min-h-screen bg-[#0A0A0A] text-white pb-20 relative">
-      <AnimatedBackground variant="dark" intensity="medium" />
+    <div className="min-h-screen text-white pb-20 relative">
+      
       
       <section className="max-w-5xl mx-auto pt-24 pb-12 px-4 relative z-10">
         <h1 className="text-4xl font-extrabold mb-2">Insights & Stories</h1>

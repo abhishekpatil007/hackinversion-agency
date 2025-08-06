@@ -6,7 +6,8 @@ import {
   ShieldCheckIcon,
   LockClosedIcon
 } from '@heroicons/react/24/outline';
-import AnimatedBackground from '../components/layout/AnimatedBackground';
+
+import { Sparkles } from '../components/ui/sparkles';
 
 
 
@@ -1251,7 +1252,7 @@ function CTASection() {
             Start Your Project <ArrowRightIcon className="w-5 h-5" />
           </Link>
           <Link
-            to="/pricing"
+                            to="/our-story"
             className="inline-flex items-center gap-2 bg-white/5 text-white font-semibold px-8 py-4 rounded-xl hover:bg-white/10 transition-all text-lg w-full md:w-auto justify-center"
           >
             View Pricing
@@ -1274,8 +1275,16 @@ function CTASection() {
 export default function OurWork() {
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-neutral-950 via-neutral-900 to-neutral-950 py-16 px-4 relative">
-      <AnimatedBackground variant="minimal" intensity="low" />
+          <div className="min-h-screen py-16 px-4 relative">
+      
+      <Sparkles 
+        density={400}
+        className="absolute inset-0 pointer-events-none"
+        color="#8b5cf6"
+        size={1.5}
+        speed={0.6}
+        opacity={0.3}
+      />
       <div className="max-w-7xl mx-auto space-y-16 mt-24">
         {/* Page Header */}
         <motion.div

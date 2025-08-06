@@ -7,10 +7,10 @@ const navigation = [
   { name: "Why Us", to: "/WhyUs" },
   { name: "Who We Help", to: "/who-we-help" },
   { name: "Our Work", to: "/OurWork" },
-  { name: "Pricing", to: "/pricing" },
+  { name: "Our Story", to: "/our-story" },
   { name: "Enterprise", to: "/enterprise" },
   { name: "FAQ", to: "/FAQ" },
-  { name: "Contact", to: "/Contact" },
+  { name: "Contact", to: "/contact" },
 ];
 
 export default function Navbar() {
@@ -135,7 +135,7 @@ export default function Navbar() {
                     transition={{ duration: 0.3 }}
                   />
                   <span className="relative z-10 flex items-center gap-2">
-                    Book a Call
+                    Contact Us
                     <motion.span
                       animate={{ x: [0, 3, 0] }}
                       transition={{ duration: 1.5, repeat: Infinity }}
@@ -288,7 +288,7 @@ export default function Navbar() {
                           transition={{ duration: 0.3 }}
                         />
                         <span className="relative z-10 flex items-center justify-center gap-2">
-                          Book a Call
+                          Contact Us
                           <motion.span
                             animate={{ x: [0, 3, 0] }}
                             transition={{ duration: 1.5, repeat: Infinity }}

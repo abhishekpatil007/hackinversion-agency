@@ -21,6 +21,8 @@
     --border: 220 14% 20%;
     --input: 220 14% 20%;
     --ring: 242 83% 67%;
+    --gradient-color: #8350e8;
+    --sparkles-color: #8350e8;
   }
 }
 
@@ -84,5 +86,26 @@ input:focus, textarea:focus {
   }
   .font-oswald {
     font-family: 'Oswald', sans-serif;
+  }
+  .animate-blink {
+    animation: blink 1s infinite;
+  }
+  .bg-dot-black\/\[0\.2\] {
+    background-image: radial-gradient(circle, #000 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  
+  .dark .bg-dot-white\/\[0\.2\] {
+    background-image: radial-gradient(circle, #fff 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
   }
 }
